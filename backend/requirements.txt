@@ -1,0 +1,15 @@
+Django>=4.2,<6.0
+djangorestframework>=3.14
+Markdown>=3.4
+Pillow>=9.0
+psycopg2-binary>=2.9
+django-environ>=0.9.0
+whitenoise>=6.4
+gunicorn>=20.1.0
+django-cors-headers>=4.0
+django-filter>=23.0
+
+# Developer / testing (optional)
+pytest>=7.0
+pytest-django>=4.5
+factory-boy>=3.2
