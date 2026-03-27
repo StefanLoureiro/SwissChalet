@@ -4,12 +4,17 @@ from .models import ChaletActivityBooking, ChaletBooking
 
 
 class ChaletActivityBookingSerializer(serializers.ModelSerializer):
+    activity_title = serializers.CharField(source="schedule.activity.title", read_only=True)
+    schedule_start = serializers.DateTimeField(source="schedule.start", read_only=True)
+
     class Meta:
         model = ChaletActivityBooking
         fields = [
             "id",
             "chalet_booking",
             "schedule",
+            "activity_title",
+            "schedule_start",
             "guests",
             "total_price",
             "status",
@@ -22,12 +27,14 @@ class ChaletActivityBookingSerializer(serializers.ModelSerializer):
 class ChaletBookingSerializer(serializers.ModelSerializer):
     activity_bookings = ChaletActivityBookingSerializer(many=True, read_only=True)
     nights = serializers.SerializerMethodField()
+    chalet_title = serializers.CharField(source='chalet.title', read_only=True)
 
     class Meta:
         model = ChaletBooking
         fields = [
             "id",
             "chalet",
+            "chalet_title",
             "user",
             "start_date",
             "end_date",

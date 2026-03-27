@@ -14,7 +14,7 @@ def _reraise_django_validation_error(exc):
 
 
 class ChaletBookingViewSet(viewsets.ModelViewSet):
-    queryset = ChaletBooking.objects.select_related("chalet", "user").prefetch_related("activity_bookings")
+    queryset = ChaletBooking.objects.select_related("chalet", "user").prefetch_related("activity_bookings__schedule__activity")
     serializer_class = ChaletBookingSerializer
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter]
     filterset_fields = ["chalet", "user", "status"]
