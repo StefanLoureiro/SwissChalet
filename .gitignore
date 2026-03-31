@@ -22,6 +22,9 @@ db.sqlite3-journal
 media/
 staticfiles/
 
+# Uploaded media files (MEDIA_ROOT = BASE_DIR, upload_to="chalets/...")
+backend/chalets/
+
 # Environment / secrets
 .env
 .env.*
@@ -59,6 +62,7 @@ frontend/out/
 .yarn/build-state.yml
 .eslintcache
 .stylelintcache
+frontend/.vite/
 
 # =============================================================================
 # Docker

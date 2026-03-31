@@ -27,9 +27,21 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
       - staticfiles:/app/staticfiles:ro
+      # Optional: mount frontend static build if you build on host
+      # - ./frontend/dist:/usr/share/nginx/html:ro
     depends_on:
       - backend
     restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+    image: swisschalet_frontend:latest
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
 
   db:
     image: postgres:15
