@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import HomeBG from '../../assets/HomeBG.jpg'
-import { greeting } from '../../utils/dateHelpers'
+import HomeBG from '../../../assets/HomeBG.jpg'
+import { greeting } from '../../../utils/dateHelpers'
 
 const WelcomeBanner = styled.div`
     background: linear-gradient(135deg, #141414 0%, #2b1111 100%);
